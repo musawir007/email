@@ -1,16 +1,15 @@
-import csv
-while True:
-    data = [
-        ['Name', 'Age', 'City'],
-        ['Alice', 30, 'New York'],
-        ['Bob', 25, 'Los Angeles'],
-        ['Charlie', 35, 'Chicago']
-    ]
-    
-    # Specify the filename
-    filename = 'people.csv'
-    
-    # Write data to a CSV file
-    with open(filename, mode='w', newline='') as file:
-        writer = csv.writer(file)
-        writer.writerows(data)
+import smtplib as s
+
+m = 1
+while True:    
+    ob = s.SMTP("smtp.gmail.com",587)
+    ob.starttls()
+    ob.login("musawir2024@gmail.com","tdfy iwuh ulcn nznq")
+    subject = "musawir"
+    body=f"iam your frend {m}"
+    message = "subject:{}\n\n{}".format(subject,body)
+
+    ob.sendmail("musawir2024@gmail.com","musawir8880@gmail.com",message)
+    ob.quit()
+    print("sending succesfull")
+    m +=1
